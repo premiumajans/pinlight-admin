@@ -7,7 +7,7 @@ use Spatie\Activitylog\LogOptions;
 
 class GeneralPhotosPhotos extends Model
 {
-    public function generalphotos()
+    public function generalphotos(): void
     {
         $this->belongsTo(GeneralPhotos::class);
     }

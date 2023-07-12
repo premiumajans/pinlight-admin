@@ -12,22 +12,9 @@ use mysql_xdevapi\XSession;
 
 class ContentCategory extends Component
 {
-    public $continents = [];
-    public $countries = [];
-
-    public $subs = [];
-
-    public $update;
-    public $updatedCat;
-    public $updatedAltCat;
-    public $updatedSubCat;
-    public $selectedContinent;
-    public $selectedSub;
-    public $selectedCountry;
-
-    public $newAltCat = [];
-
-    public function mount()
+    public $continents,$countries,$subs,$newAltCat = [];
+    public $update,$updatedCat,$updatedAltCat,$updatedSubCat,$selectedContinent,$selectedSub,$selectedCountry;
+    public function mount(): void
     {
         $this->continents = Category::all();
         if ($this->update != null) {
@@ -40,15 +27,14 @@ class ContentCategory extends Component
                 $this->subs = SubCategory::where('alt_category_id', $content->alt_id)->get();
             }
         }
-
     }
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('livewire.content-category');
     }
 
-    public function changeCategory()
+    public function changeCategory(): void
     {
         if ($this->selectedContinent != '-1') {
             $this->countries = AltCategory::where('category_id', $this->selectedContinent)->get();
@@ -56,7 +42,7 @@ class ContentCategory extends Component
         }
     }
 
-    public function changeSub()
+    public function changeSub(): void
     {
         if ($this->selectedCountry !== '-1') {
             $this->subs = SubCategory::where('alt_category_id', $this->selectedCountry)->get();

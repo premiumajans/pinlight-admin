@@ -41,6 +41,17 @@
                                             </div>
                                         @endforeach
                                         <div class="mb-3">
+                                            <label>@lang('backend.keywords') </label>
+                                            <input name="keywords" type="text"
+                                                   class="form-control" value="{{ $product->keywords }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.alternative')</label>
+                                            <input name="alternative" type="text"
+                                                   class="form-control"
+                                                   value="{{ $product->alternative }}">
+                                        </div>
+                                        <div class="mb-3">
                                             <label>@lang('backend.photo') <span class="text-danger">*</span></label>
                                             <input name="photo" type="file"
                                                    class="form-control">

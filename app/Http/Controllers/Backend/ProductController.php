@@ -32,6 +32,8 @@ class ProductController extends Controller
         try {
             $product = new Product();
             $product->photo = upload('product', $request->file('photo'));
+            $product->keywords = $request->keywords;
+            $product->alternative = $request->alternative;
             $product->save();
             foreach (active_langs() as $lang) {
                 $translation = new ProductTranslation();
@@ -67,6 +69,8 @@ class ProductController extends Controller
         try {
             $product = Product::where('id', $id)->with('photos')->first();
             DB::transaction(function () use ($request, $product) {
+                $product->keywords = $request->keywords;
+                $product->alternative = $request->alternative;
                 if ($request->hasFile('photo')) {
                     if (file_exists($product->photo)) {
                         unlink(public_path($product->photo));

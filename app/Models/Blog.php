@@ -12,15 +12,12 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Blog extends Model implements TranslatableContract
 {
     use Translatable, LogsActivity;
-
-    public $translatedAttributes = ['name'];
+    public array $translatedAttributes = ['name'];
     protected $guarded = [];
-
     public function photos()
     {
         return $this->hasMany(BlogPhotos::class);
     }
-
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logAll();

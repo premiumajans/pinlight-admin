@@ -24,7 +24,6 @@ class User extends Authenticatable
         Notifiable,
         TwoFactorAuthenticatable,
         LogsActivity;
-
     protected $fillable = [
         'name',
         'email',
@@ -42,7 +41,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logAll();

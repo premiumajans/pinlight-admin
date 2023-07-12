@@ -7,7 +7,7 @@ use Spatie\Activitylog\LogOptions;
 
 class BlogPhotos extends Model
 {
-    public function blog()
+    public function blog(): void
     {
         $this->belongsTo(Blog::class);
     }

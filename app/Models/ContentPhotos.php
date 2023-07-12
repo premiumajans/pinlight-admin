@@ -8,7 +8,7 @@ use Spatie\Activitylog\LogOptions;
 
 class ContentPhotos extends Model
 {
-    public function content()
+    public function content(): void
     {
         $this->belongsTo(Content::class);
     }
