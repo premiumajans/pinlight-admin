@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\SiteLanguage;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
 class LanguageSeeder extends Seeder
 {
     public function run()

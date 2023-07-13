@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\CRUDHelper;
+use App\Models\About;
+use App\Models\AboutTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
