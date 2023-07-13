@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Helpers\CRUDHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use function Sodium\add;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('backend.dashboard', get_defined_vars());
+        return view('backend.dashboard');
     }
 
     public function deletePhoto($modelName, $id)

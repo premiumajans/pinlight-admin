@@ -12,17 +12,16 @@ class RouteServiceProvider extends ServiceProvider
 {
     public const HOME = '/';
     public const ADMIN = '/login';
-    public function boot()
+    public function boot(): void
     {
         $this->configureRateLimiting();
-
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
             Route::middleware(['web', 'backendLanguage'])
-                ->prefix('/admin')
+                ->prefix('/')
 //                ->as('backend.')
                 ->group(base_path('routes/admin.php'));
 
