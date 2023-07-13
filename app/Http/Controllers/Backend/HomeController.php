@@ -21,6 +21,6 @@ class HomeController extends Controller
     public function deletePhoto($modelName, $id)
     {
         check_permission(Str::lower($modelName) . ' delete');
-        CRUDHelper::remove_item('\App\Models\\' . $modelName . 'Photos', $id);
+        return CRUDHelper::remove_item('\App\Models\\' . $modelName . 'Photos', $id);
     }
 }
