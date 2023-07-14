@@ -1,4 +1,3 @@
-
 @extends('master.backend')
 @section('title',__('backend.product'))
 @section('content')
@@ -41,6 +40,16 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                        <div class="mb-3">
+                                            <label>@lang('backend.categories')</label>
+                                            <select name="category"
+                                                    class="form-control">
+                                                @foreach($categories as $category)
+                                                    <option
+                                                        value="{{ $category->id }}" {{ ($product->category_id == $category->id) ? 'selected' : ''}}>{{ $category->translate(app()->getLocale())->name ??  __('backend.translation-not-found') }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <div class="mb-3">
                                             <label>@lang('backend.keywords') </label>
                                             <input name="keywords" type="text"

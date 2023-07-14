@@ -10,12 +10,17 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->unsigned();
             $table->longText('photo')->nullable();
             $table->longText('catalog_pdf')->nullable();
             $table->longText('keywords')->nullable();
             $table->longText('alternative')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
         });
     }
     public function down(): void

@@ -14,7 +14,7 @@ class Category extends Model implements TranslatableContract
     use Translatable, LogsActivity;
     public array $translatedAttributes = ['name'];
     protected $fillable = ['slug'];
-    public function product (): HasMany
+    public function product(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Product::class);
     }
