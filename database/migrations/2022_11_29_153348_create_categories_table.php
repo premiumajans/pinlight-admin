@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('slug',30);
+            $table->longText('slug');
             $table->boolean('status');
             $table->timestamps();
         });
     }
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('categories');
     }

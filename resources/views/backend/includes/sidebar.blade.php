@@ -41,14 +41,6 @@
                         </a>
                     </li>
                 @endcan
-                @can('media index')
-                    <li>
-                        <a href="{{ route('backend.media.index') }}" class="waves-effect">
-                            <i class="fas fa-photo-video"></i>
-                            <span>@lang('backend.media')</span>
-                        </a>
-                    </li>
-                @endcan
                 @can('service index')
                     <li>
                         <a href="{{ route('backend.service.index') }}" class="waves-effect">
@@ -65,14 +57,14 @@
                         </a>
                     </li>
                 @endcan
-                @can('blog index')
-                    <li>
-                        <a href="{{ route('backend.blog.index') }}" class="waves-effect">
-                            <i class="fas fa-blog"></i>
-                            <span>@lang('backend.blog')</span>
-                        </a>
-                    </li>
-                @endcan
+{{--                @can('blog index')--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('backend.blog.index') }}" class="waves-effect">--}}
+{{--                            <i class="fas fa-blog"></i>--}}
+{{--                            <span>@lang('backend.blog')</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
                 @can('categories index')
                     <li>
                         <a href="{{ route('backend.categories.index') }}" class="waves-effect">

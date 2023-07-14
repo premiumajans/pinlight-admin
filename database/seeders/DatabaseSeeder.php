@@ -9,10 +9,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AboutSeeder::class,
             LanguageSeeder::class,
+            CategorySeeder::class,
             PermissionsSeeder::class,
             SettingSeeder::class,
             AdminSeeder::class,
-//            CategorySeeder::class,
         ]);
     }
 }

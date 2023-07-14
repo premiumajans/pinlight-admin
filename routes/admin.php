@@ -12,17 +12,16 @@ Route::group(['middleware' => 'auth:admin', 'as' => 'backend.'], function () {
         Route::get('blog/{id}/change-status', [App\Http\Controllers\Backend\BlogController::class, 'status'])->name('blogStatus');
         Route::get('portfolio/{id}/change-status', [App\Http\Controllers\Backend\PortfolioController::class, 'status'])->name('portfolioStatus');
         Route::get('service/{id}/change-status', [App\Http\Controllers\Backend\ServiceController::class, 'status'])->name('serviceStatus');
-        Route::get('media/{id}/change-status', [App\Http\Controllers\Backend\MediaController::class, 'status'])->name('mediaStatus');
         Route::get('catalog/{id}/change-status', [App\Http\Controllers\Backend\CatalogController::class, 'status'])->name('catalogStatus');
         Route::get('mail/{id}/change-status', [App\Http\Controllers\Backend\MailController::class, 'status'])->name('mailStatus');
         Route::get('alt-categories/{id}/change-status', [App\Http\Controllers\Backend\AltCategoryController::class, 'status'])->name('alt-categoriesStatus');
         Route::get('about/{id}/change-status', [App\Http\Controllers\Backend\AboutController::class, 'status'])->name('aboutStatus');
         Route::get('content/{id}/change-status', [App\Http\Controllers\Backend\ContentController::class, 'status'])->name('contentStatus');
-        Route::get('/site-language/{id}/change-status', [App\Http\Controllers\Backend\System\SiteLanguageController::class, 'siteLanStatus'])->name('site-languagesStatus');
-        Route::get('/categories/{id}/change-status', [App\Http\Controllers\Backend\CategoryController::class, 'categoryStatus'])->name('categoryStatus');
-        Route::get('/seo/{id}/change-status', [App\Http\Controllers\Backend\MetaController::class, 'seoStatus'])->name('seoStatus');
-        Route::get('/slider/{id}/change-status', [App\Http\Controllers\Backend\SliderController::class, 'sliderStatus'])->name('sliderStatus');
-        Route::get('/permissions/{id}/change-status', function () {
+        Route::get('site-language/{id}/change-status', [App\Http\Controllers\Backend\System\SiteLanguageController::class, 'siteLanStatus'])->name('site-languagesStatus');
+        Route::get('categories/{id}/change-status', [App\Http\Controllers\Backend\CategoryController::class, 'categoryStatus'])->name('categoryStatus');
+        Route::get('seo/{id}/change-status', [App\Http\Controllers\Backend\MetaController::class, 'seoStatus'])->name('seoStatus');
+        Route::get('slider/{id}/change-status', [App\Http\Controllers\Backend\SliderController::class, 'sliderStatus'])->name('sliderStatus');
+        Route::get('permissions/{id}/change-status', function () {
             return redirect()->back();
         })->name('permissionsStatus');
     });
@@ -32,7 +31,6 @@ Route::group(['middleware' => 'auth:admin', 'as' => 'backend.'], function () {
         Route::get('blog/{id}/delete', [App\Http\Controllers\Backend\BlogController::class, 'delete'])->name('blogDelete');
         Route::get('portfolio/{id}/delete', [App\Http\Controllers\Backend\PortfolioController::class, 'delete'])->name('portfolioDelete');
         Route::get('service/{id}/delete', [App\Http\Controllers\Backend\ServiceController::class, 'delete'])->name('serviceDelete');
-        Route::get('media/{id}/delete', [App\Http\Controllers\Backend\MediaController::class, 'delete'])->name('mediaDelete');
         Route::get('catalog/{id}/delete', [App\Http\Controllers\Backend\CatalogController::class, 'delete'])->name('catalogDelete');
         Route::get('mail/{id}/delete', [App\Http\Controllers\Backend\MailController::class, 'delete'])->name('mailDelete');
         Route::get('about/{id}/delete', [App\Http\Controllers\Backend\AboutController::class, 'delete'])->name('aboutDelete');
@@ -57,7 +55,6 @@ Route::group(['middleware' => 'auth:admin', 'as' => 'backend.'], function () {
         Route::resource('/blog', App\Http\Controllers\Backend\BlogController::class);
         Route::resource('/portfolio', App\Http\Controllers\Backend\PortfolioController::class);
         Route::resource('/service', App\Http\Controllers\Backend\ServiceController::class);
-        Route::resource('/media', App\Http\Controllers\Backend\MediaController::class);
         Route::resource('/catalog', App\Http\Controllers\Backend\CatalogController::class);
         Route::resource('/mail', App\Http\Controllers\Backend\MailController::class);
         Route::resource('/alt-categories', App\Http\Controllers\Backend\AltCategoryController::class);

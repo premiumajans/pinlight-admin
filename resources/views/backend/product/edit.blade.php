@@ -47,7 +47,7 @@
                                                    class="form-control" value="{{ $product->keywords }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label>@lang('backend.alternative')</label>
+                                            <label>@lang('backend.alt')</label>
                                             <input name="alternative" type="text"
                                                    class="form-control"
                                                    value="{{ $product->alternative }}">
