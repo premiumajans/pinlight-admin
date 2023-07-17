@@ -25,14 +25,6 @@
                         </a>
                     </li>
                 @endcan
-                @can('content index')
-                    <li>
-                        <a href="{{ route('backend.content.index') }}" class="waves-effect">
-                            <i class="fas fa-file"></i>
-                            <span>@lang('backend.content')</span>
-                        </a>
-                    </li>
-                @endcan
                 @can('slider index')
                     <li>
                         <a href="{{ route('backend.slider.index') }}" class="waves-effect">
@@ -41,76 +33,11 @@
                         </a>
                     </li>
                 @endcan
-                @can('catalog index')
+                @can('partner index')
                     <li>
-                        <a href="{{ route('backend.catalog.index') }}" class="waves-effect">
-                            <i class="fas fa-images"></i>
-                            <span>@lang('backend.catalog')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('service index')
-                    <li>
-                        <a href="{{ route('backend.service.index') }}" class="waves-effect">
-                            <i class="fas fa-wrench"></i>
-                            <span>@lang('backend.service')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('portfolio index')
-                    <li>
-                        <a href="{{ route('backend.portfolio.index') }}" class="waves-effect">
-                            <i class="fas fa-portrait"></i>
-                            <span>@lang('backend.portfolio')</span>
-                        </a>
-                    </li>
-                @endcan
-{{--                @can('blog index')--}}
-{{--                    <li>--}}
-{{--                        <a href="{{ route('backend.blog.index') }}" class="waves-effect">--}}
-{{--                            <i class="fas fa-blog"></i>--}}
-{{--                            <span>@lang('backend.blog')</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endcan--}}
-
-                @can('gallery index')
-                    <li>
-                        <a href="{{ route('backend.gallery.index') }}" class="waves-effect">
-                            <i class="fas fa-images"></i>
-                            <span>@lang('backend.gallery')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('video index')
-                    <li>
-                        <a href="{{ route('backend.video.index') }}" class="waves-effect">
-                            <i class="fas fa-video"></i>
-                            <span>@lang('backend.video')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('writer index')
-                    <li>
-                        <a href="{{ route('backend.writer.index') }}" class="waves-effect">
-                            <i class="fas fa-pen-nib"></i>
-                            <span>@lang('backend.writer')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('UseFulLink index')
-                    <li>
-                        <a href="{{ route('backend.useful-links.index') }}" class="waves-effect">
-                            <i class="fas fa-link"></i>
-                            <span>@lang('backend.useful-links')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('mail index')
-                    <li>
-                        <a href="{{ route('backend.mail.index') }}" class="waves-effect">
-                            <i class="fas fa-mail-bulk"></i>
-                            <span>@lang('backend.mail')</span>
+                        <a href="{{ route('backend.partner.index') }}" class="waves-effect">
+                            <i class="fas fa-hands-helping"></i>
+                            <span>@lang('backend.partner')</span>
                         </a>
                     </li>
                 @endcan

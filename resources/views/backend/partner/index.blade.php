@@ -1,5 +1,5 @@
 @extends('master.backend')
-@section('title',__('backend.blog'))
+@section('title',__('backend.partner'))
 @section('styles')
     @include('backend.templates.components.dt-styles')
 @endsection
@@ -11,8 +11,8 @@
                     <div class="card-body">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">@lang('backend.catalog'):</h4>
-                                <a href="{{ route('backend.catalog.create') }}" class="btn btn-primary mb-3"><i
+                                <h4 class="mb-sm-0">@lang('backend.partner'):</h4>
+                                <a href="{{ route('backend.partner.create') }}" class="btn btn-primary mb-3"><i
                                         class="fas fa-plus"></i> &nbsp;@lang('backend.add-new')
                                 </a>
                             </div>
@@ -23,17 +23,15 @@
                             <tr>
                                 <th>ID</th>
                                 <th>@lang('backend.photo'):</th>
-                                <th>@lang('backend.name'):</th>
                                 <th>@lang('backend.actions'):</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($catalogs as $catalog)
+                            @foreach($partners as $partner)
                                 <tr>
-                                    <td>{{ $catalog->id }}</td>
-                                    <td><img src="{{ asset($catalog->photo) }}" style="width: 120px;height: 80px;"></td>
-                                    <td>{{ $catalog->translate(app()->getLocale())->name ?? '-' }}</td>
-                                    @include('backend.templates.components.dt-settings',['variable' => 'catalog','value' => $catalog])
+                                    <td>{{ $partner->id }}</td>
+                                    <td><img class="form-control" style="width: 250px;height: 130px;object-fit: cover;" src="{{ asset($partner->photo) }}"></td>
+                                    @include('backend.templates.components.dt-settings',['variable' => 'partner','value' => $partner])
                                 </tr>
                             @endforeach
                             </tbody>

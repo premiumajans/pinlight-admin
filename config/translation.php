@@ -1,5 +1,4 @@
 <?php
-
 return [
     'driver' => 'file',
     'route_group_config' => [
