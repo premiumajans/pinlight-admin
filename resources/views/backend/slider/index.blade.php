@@ -46,12 +46,12 @@
                                     @if(count(\App\Models\Slider::all()) >1)
                                     <td class="text-center">
                                             <a class="btn btn-primary"
-                                               href={{ route('backend.sliderOrder',['id'=>$slider->id,'direction' => 'down']) }}>
+                                               href={{ route('system.sliderOrder',['id'=>$slider->id,'direction' => 'down']) }}>
                                                 <i class="fas fa-arrow-@if($slider->order !=  \App\Models\Slider::orderBy('order','desc')->first()->order)down @elseif($slider->order ==  \App\Models\Slider::orderBy('order','desc')->first()->order)up @endif"></i>
                                             </a>
                                             @if($slider->order !=  \App\Models\Slider::orderBy('order','desc')->first()->order and $slider->order !=  \App\Models\Slider::orderBy('order','asc')->first()->order)
                                                 <a class="btn btn-primary"
-                                                   href={{ route('backend.sliderOrder',['id'=>$slider->id,'direction' => 'up']) }}>
+                                                   href={{ route('system.sliderOrder',['id'=>$slider->id,'direction' => 'up']) }}>
                                                     <i class="fas fa-arrow-up"></i>
                                                 </a>
                                             @endif

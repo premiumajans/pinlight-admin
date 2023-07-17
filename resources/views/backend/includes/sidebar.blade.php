@@ -17,6 +17,14 @@
                         </a>
                     </li>
                 @endcan
+                @can('categories index')
+                    <li>
+                        <a href="{{ route('backend.categories.index') }}" class="waves-effect">
+                            <i class="fas fa-bars"></i>
+                            <span>@lang('backend.categories')</span>
+                        </a>
+                    </li>
+                @endcan
                 @can('content index')
                     <li>
                         <a href="{{ route('backend.content.index') }}" class="waves-effect">
@@ -65,30 +73,7 @@
 {{--                        </a>--}}
 {{--                    </li>--}}
 {{--                @endcan--}}
-                @can('categories index')
-                    <li>
-                        <a href="{{ route('backend.categories.index') }}" class="waves-effect">
-                            <i class="fas fa-bars"></i>
-                            <span>@lang('backend.categories')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('categories index')
-                    <li>
-                        <a href="{{ route('backend.alt-categories.index') }}" class="waves-effect">
-                            <i class="fas fa-bars"></i>
-                            <span>@lang('backend.alt-categories')</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('categories index')
-                    <li>
-                        <a href="{{ route('backend.sub-categories.index') }}" class="waves-effect">
-                            <i class="fas fa-bars"></i>
-                            <span>@lang('backend.sub-categories')</span>
-                        </a>
-                    </li>
-                @endcan
+
                 @can('gallery index')
                     <li>
                         <a href="{{ route('backend.gallery.index') }}" class="waves-effect">

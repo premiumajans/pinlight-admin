@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth:admin', 'as' => 'backend.'], function () {
     Route::get('/', [App\Http\Controllers\Backend\HomeController::class, 'index'])->name('index');
     Route::get('delete/photo/{model}/{id}', [App\Http\Controllers\Backend\HomeController::class, 'deletePhoto'])->name('deletePhoto');
-
     Route::group(['name' => 'status'], function () {
         Route::get('general/{id}/change-status', [App\Http\Controllers\Backend\GeneralController::class, 'status'])->name('generalStatus');
         Route::get('product/{id}/change-status', [App\Http\Controllers\Backend\ProductController::class, 'status'])->name('productStatus');
