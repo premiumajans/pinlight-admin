@@ -18,11 +18,6 @@ class Category extends Model implements TranslatableContract
     {
         return $this->hasMany(Product::class);
     }
-    public function alt(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(AltCategory::class);
-    }
-
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logAll();
