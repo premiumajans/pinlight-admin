@@ -29,6 +29,7 @@ class ProductController extends Controller
         }
     }
 
+
     public function products()
     {
         $categories = DB::table('categories')
