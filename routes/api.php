@@ -11,11 +11,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['name' => 'api'], function () {
-    Route::get('/product/{id}', [App\Http\Controllers\Api\ProductController::class, 'show']);
     Route::get('/product', [App\Http\Controllers\Api\ProductController::class, 'index']);
-    Route::get('/partner/{id}', [App\Http\Controllers\Api\PartnerController::class, 'show']);
-    Route::get('/partner', [App\Http\Controllers\Api\PartnerController::class, 'index']);
+    Route::get('/product/{id}', [App\Http\Controllers\Api\ProductController::class, 'show']);
     Route::get('/category/{slug}/product', [App\Http\Controllers\Api\ProductController::class, 'category']);
+    Route::get('/category/products', [App\Http\Controllers\Api\ProductController::class, 'products']);
+
+    Route::get('/partner', [App\Http\Controllers\Api\PartnerController::class, 'index']);
+    Route::get('/partner/{id}', [App\Http\Controllers\Api\PartnerController::class, 'show']);
+
     Route::get('/blog', [App\Http\Controllers\Api\BlogController::class, 'index']);
     Route::get('/blog/{id}', [App\Http\Controllers\Api\BlogController::class, 'show']);
     Route::get('/settings', function () {
