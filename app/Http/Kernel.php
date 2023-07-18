@@ -20,7 +20,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\BackendLanguage::class,
 //        \App\Http\Middleware\FrontLanguage::class,
     ];
-
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -31,15 +30,14 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\BackendLanguage::class,
         ],
-
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
-    protected $commands = [
-        \App\Console\Commands\Controllers\FillFrontendControllerCommand::class,
+    protected array $commands = [
+//        \App\Console\Commands\Controllers\FillFrontendControllerCommand::class,
         \App\Console\Commands\view\CreateBlade::class,
         \App\Console\Commands\Controllers\FillControllerCommand::class,
         \App\Console\Commands\Routes\Api\CreateIndexRoute::class,

@@ -17,7 +17,6 @@ class PermissionsSeeder extends Seeder
             'categories',
             'languages',
             'settings',
-            'seo-tags',
             'users',
             'permissions',
             'report',
@@ -28,6 +27,7 @@ class PermissionsSeeder extends Seeder
             'product',
             'portfolio',
             'service',
+            'partner'
         ];
         foreach ($permissions as $permission) {
             add_permission($permission);

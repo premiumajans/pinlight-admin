@@ -41,6 +41,27 @@
                                             </div>
                                         @endforeach
                                         <div class="mb-3">
+                                            <label>@lang('backend.categories')</label>
+                                            <select name="category"
+                                                    class="form-control">
+                                                @foreach($categories as $category)
+                                                    <option
+                                                        value="{{ $category->id }}" {{ ($product->category_id == $category->id) ? 'selected' : ''}}>{{ $category->translate(app()->getLocale())->name ??  __('backend.translation-not-found') }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.keywords') </label>
+                                            <input name="keywords" type="text"
+                                                   class="form-control" value="{{ $product->keywords }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.alt')</label>
+                                            <input name="alternative" type="text"
+                                                   class="form-control"
+                                                   value="{{ $product->alternative }}">
+                                        </div>
+                                        <div class="mb-3">
                                             <label>@lang('backend.photo') <span class="text-danger">*</span></label>
                                             <input name="photo" type="file"
                                                    class="form-control">
@@ -63,7 +84,7 @@
                                                                  style="height: 200px; width: 170px; object-fit: cover;">
                                                             <a style="position: absolute; right:5px; top:5px"
                                                                type="button" class="btn btn-danger"
-                                                               href="{{ route('backend.deletePhoto','Product',$photo->id) }}">X</a>
+                                                               href="{{ route('backend.deletePhoto',['model' => 'Product','id' => $photo->id]) }}">X</a>
                                                         </div>
                                                     @endforeach
                                                 </div>

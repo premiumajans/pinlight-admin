@@ -1,4 +1,6 @@
-<?php return array (
+<?php
+
+return array (
   'about' => 'Haqqımızda',
   'actions' => 'Hərəkətlər',
   'active' => 'Aktiv',
@@ -9,6 +11,7 @@
   'add-new-vacancy' => 'Vakansiya yerləşdir',
   'add-new-writer' => 'Yeni Yazıçı əlavə et',
   'address' => 'Ünvan',
+  'admin' => 'Admin',
   'adress' => 'Ünvan',
   'ads-count' => 'Elan sayı',
   'age' => 'Yaş',
@@ -143,6 +146,7 @@
   'our-team' => 'Komandamız',
   'page' => 'Səhifə',
   'pages' => 'Səhifələr',
+  'partner' => 'Əməkdaşlıqlarımız',
   'password' => 'Şifrə',
   'pay-to-card' => 'Kartla ödəniş',
   'payment-method' => 'Ödəniş üsulu',

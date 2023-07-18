@@ -27,6 +27,28 @@
                                         @endforeach
                                         @include('backend.templates.items.create.validations.photo')
                                         @include('backend.templates.items.create.validations.photos')
+                                        <div class="mb-3">
+                                            <label>@lang('backend.categories')</label>
+                                            <select name="category"
+                                                    class="form-control">
+                                                @foreach($categories as $category)
+                                                    <option
+                                                        value="{{ $category->id }}">{{ $category->translate(app()->getLocale())->name ??  __('backend.translation-not-found') }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.keywords')</label>
+                                            <input name="keywords" type="text"
+                                                   class="form-control"
+                                                   placeholder="keyword1, keyword2">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label>@lang('backend.alt')</label>
+                                            <input name="alternative" type="text"
+                                                   class="form-control"
+                                                   placeholder="Alternative">
+                                        </div>
                                     </div>
                                 </div>
                                 @include('backend.templates.components.buttons')

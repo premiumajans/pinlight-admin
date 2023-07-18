@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\CRUDHelper;
+use App\Models\Category;
 use App\Models\ProductPhotos;
 use App\Models\ProductTranslation;
 use Exception;
@@ -23,16 +24,21 @@ class ProductController extends Controller
     public function create()
     {
         check_permission('product create');
+        $categories = Category::where('status', 1)->get();
         return view('backend.product.create', get_defined_vars());
     }
 
     public function store(Request $request)
     {
+        //dd($request->all());
         check_permission('product create');
         try {
+            $category = Category::find($request->category);
             $product = new Product();
             $product->photo = upload('product', $request->file('photo'));
-            $product->save();
+            $product->keywords = $request->keywords;
+            $product->alternative = $request->alternative;
+            $category->product()->save($product);
             foreach (active_langs() as $lang) {
                 $translation = new ProductTranslation();
                 $translation->locale = $lang->code;
@@ -41,11 +47,13 @@ class ProductController extends Controller
                 $translation->description = $request->description[$lang->code];
                 $translation->save();
             }
-            foreach (multi_upload('product', $request->file('photos')) as $photo) {
-                $productPhoto = new ProductPhotos();
-                $productPhoto->photo = $photo;
-                $product->photos()->save($productPhoto);
-            };
+            if ($request->hasFile('photos')) {
+                foreach (multi_upload('product', $request->file('photos')) as $photo) {
+                    $productPhoto = new ProductPhotos();
+                    $productPhoto->photo = $photo;
+                    $product->photos()->save($productPhoto);
+                };
+            }
             alert()->success(__('messages.success'));
             return redirect(route('backend.product.index'));
         } catch (Exception $e) {
@@ -58,6 +66,7 @@ class ProductController extends Controller
     {
         check_permission('product edit');
         $product = Product::where('id', $id)->with('photos')->first();
+        $categories = Category::where('status', 1)->get();
         return view('backend.product.edit', get_defined_vars());
     }
 
@@ -67,6 +76,8 @@ class ProductController extends Controller
         try {
             $product = Product::where('id', $id)->with('photos')->first();
             DB::transaction(function () use ($request, $product) {
+                $product->keywords = $request->keywords;
+                $product->alternative = $request->alternative;
                 if ($request->hasFile('photo')) {
                     if (file_exists($product->photo)) {
                         unlink(public_path($product->photo));

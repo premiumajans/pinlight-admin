@@ -4,10 +4,10 @@
             <div class="navbar-brand-box">
                 <a href="" class="logo logo-light">
                      <span class="logo-sm justify-content-center">
-                         <img src="{{asset('backend/images/favicon-admin.png')}}" alt="logo-sm-light" height="30">
+                         <img src="{{asset('backend/images/logo.png')}}" alt="logo-sm-light" height="30">
                      </span>
                     <span class="logo-lg justify-content-center">
-                        <img src="{{ asset('backend/images/logo-w.png') }}" alt="logo-light" height="50">
+                        <img src="{{ asset('backend/images/logo-w.png') }}" alt="logo-light" height="80">
                     </span>
                 </a>
             </div>
