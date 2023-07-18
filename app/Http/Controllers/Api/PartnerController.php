@@ -10,7 +10,7 @@ class PartnerController extends Controller
     public function index()
     {
         if (Partner::where('status', 1)->exists()) {
-            return response()->json(['partner' => Partner::where('status', 1)->with('photos')->get()], 200);
+            return response()->json(['partner' => Partner::where('status', 1)->get()], 200);
         } else {
             return response()->json(['partner' => 'Partner-is-empty'], 404);
         }
